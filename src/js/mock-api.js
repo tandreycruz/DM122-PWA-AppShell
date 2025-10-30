@@ -23,7 +23,7 @@ export async function mockProfileAPI() {
       .replace(/\s+/g, ".") + "@example.com";
 
   // Use pravatar for a simple profile picture placeholder
-  const avatarId = Math.floor(Math.random() * 70) + 1; // pravatar supports many ids
+  const avatarId = Math.floor(Math.random() * names.length) + 1; // pravatar supports many ids
   const profilePicture = `https://i.pravatar.cc/150?img=${avatarId}`;
 
   const body = {
