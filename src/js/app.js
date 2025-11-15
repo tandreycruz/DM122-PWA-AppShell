@@ -1,9 +1,11 @@
 import HtmlService from "./HtmlService.js";
+import TodoService from "./TodoService.js";
 
 class App {
   constructor() {
     this.#registerServiceWorker();
-    window.htmlService = new HtmlService();
+    const todoService = new TodoService();
+    window.htmlService = new HtmlService(todoService);
   }
 
   #registerServiceWorker() {

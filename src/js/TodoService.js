@@ -18,17 +18,17 @@ export default class TodoService {
     db.on("populate", async () => {
       db.todo.bulkPut([
         {
-          task: "Learn PWA",
+          description: "Learn PWA",
           createdDate: new Date(),
           done: false,
         },
         {
-          task: "Learn HTML5 APIs",
+          description: "Learn HTML5 APIs",
           createdDate: new Date(),
           done: true,
         },
         {
-          task: "Eat an 🍎",
+          description: "Eat an 🍎",
           createdDate: new Date(),
           done: false,
         },
@@ -38,23 +38,23 @@ export default class TodoService {
     this.#db = db;
   }
 
-  async save({ task, createdDate = new Date(), done = false }) {
-    if (!task) {
-      console.error(`[TodoService.js] no task provided`);
+  async save({ description, createdDate = new Date(), done = false }) {
+    if (!description) {
+      console.error(`[TodoService.js] no description provided`);
       return;
     }
     const taskRecord = {
-      task,
+      description,
       createdDate,
       updatedDate: new Date(),
       done,
     };
     try {
       const savedId = await this.#db.todo.put(taskRecord);
-      console.log(`[TodoService.js] ${task} saved`);
+      console.log(`[TodoService.js] ${description} saved`);
       return { id: savedId, ...taskRecord };
     } catch (error) {
-      console.error(`Error when adding task: ${task}`, error);
+      console.error(`Error when adding task: ${description}`, error);
     }
   }
 
