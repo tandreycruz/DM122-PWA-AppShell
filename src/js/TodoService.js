@@ -51,7 +51,7 @@ export default class TodoService {
     };
     try {
       const savedId = await this.#db.todo.put(taskRecord);
-      console.log(`[TodoService.js] ${description} saved`);
+      console.log(`[TodoService.js] task ${description} saved`);
       return { id: savedId, ...taskRecord };
     } catch (error) {
       console.error(`Error when adding task: ${description}`, error);
@@ -64,7 +64,7 @@ export default class TodoService {
 
   async delete(taskId) {
     await this.#db.todo.delete(taskId);
-    console.log(`[TodoService.js] deleted ${taskId}`);
+    console.log(`[TodoService.js] Task with ID ${taskId} has been deleted`);
     return true;
   }
 }
