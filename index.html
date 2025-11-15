@@ -7,7 +7,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>PWA - Vanilla JS</title>
+    <title>PWA - TODO List</title>
     <link rel="manifest" href="manifest.json" />
     <link
       rel="stylesheet"
@@ -31,11 +31,11 @@
         <header class="mdl-layout__header">
           <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title">PWA - Vanilla JS</span>
+            <span class="mdl-layout-title">PWA - TODO List</span>
           </div>
         </header>
         <div class="mdl-layout__drawer">
-          <span class="mdl-layout-title">PWA - Vanilla JS</span>
+          <span class="mdl-layout-title">PWA - TODO List</span>
           <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="#">About</a>
           </nav>
@@ -44,14 +44,29 @@
           class="mdl-layout__content mat-typography"
           style="text-align: center"
         >
-          <p id="output">
-            <img
-              src="src/assets/images/pwa-logo.png"
-              alt="A dog"
-              style="margin-top: 2rem; width: 300px"
+          <form>
+            <input
+              type="text"
+              name="task"
+              placeholder="Type anything here"
+              autocomplete="off"
+              autofocus
             />
-            <button>Fetch data (look at console.log)</button>
-          </p>
+          </form>
+          <ul>
+            <li>
+              <span>Learn PWA</span>
+              <button>❌</button>
+            </li>
+            <li class="done">
+              <span>Learn HTML5 APIs</span>
+              <button>❌</button>
+            </li>
+            <li>
+              <span>Learn how to defeat Radiance in Hollow Knight</span>
+              <button>❌</button>
+            </li>
+          </ul>
         </main>
       </div>
     </div>
