@@ -33,12 +33,20 @@ export default class HtmlService {
   #addTaskToDOM(task) {
     console.log(`👁️ [HtmlService.js] adding task to DOM: ${task.description}`);
     const taskHtml = `
-      <li id="${task.id}" onclick="this.classList.toggle('done')">
+      <li id="${task.id}" onclick="htmlService.updateTask(this)">
         <span>${task.description}</span>
         <button onclick="htmlService.deleteTask(${task.id})">❌</button>
       </li>
     `;
     this.#ul.insertAdjacentHTML("beforeend", taskHtml);
+  }
+
+  // TODO: implement update
+  async updateTask(element) {
+    const isDone = element.classList.toggle("done");
+    const task = element.getAttribute("data-task");
+    console.log(`👁️ [HtmlService.js] `, task, element);
+    // await this.#todoService.save({ description });
   }
 
   async deleteTask(taskId) {
